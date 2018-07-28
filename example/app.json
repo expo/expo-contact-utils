@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "basic",
+    "description": "",
+    "slug": "expo-contact-utils",
+    "sdkVersion": "29.0.0",
+    "version": "1.0.0",
+    "primaryColor": "#ffffff"
+  }
+}

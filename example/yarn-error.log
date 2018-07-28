@@ -1,0 +1,59 @@
+Arguments: 
+  /Users/evanbacon/.nvm/versions/node/v8.5.0/bin/node /Users/evanbacon/.yarn/bin/yarn.js
+
+PATH: 
+  /Users/evanbacon/Downloads/cocos2d-x-3.16/templates:/Users/evanbacon/Downloads:/Users/evanbacon/Downloads/cocos2d-x-3.16/tools/cocos2d-console/bin:/Users/evanbacon/Library/Android/sdk/platform-tools:/Users/evanbacon/.fastlane/bin:/Users/evanbacon/.yarn/bin:/Users/evanbacon/.nvm/versions/node/v8.5.0/bin:/Users/evanbacon/.nix-profile/bin:/Users/evanbacon/.nix-profile/lib/kde4/libexec:/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default:/nix/var/nix/profiles/default/lib/kde4/libexec:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  8.5.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@expo%2fcontact-utils: Not found
+      at Request.params.callback [as _callback] (/Users/evanbacon/.yarn/lib/cli.js:65656:18)
+      at Request.self.callback (/Users/evanbacon/.yarn/lib/cli.js:134675:22)
+      at emitTwo (events.js:125:13)
+      at Request.emit (events.js:213:7)
+      at Request.<anonymous> (/Users/evanbacon/.yarn/lib/cli.js:135658:10)
+      at emitOne (events.js:115:13)
+      at Request.emit (events.js:210:7)
+      at IncomingMessage.<anonymous> (/Users/evanbacon/.yarn/lib/cli.js:135578:12)
+      at Object.onceWrapper (events.js:314:30)
+      at emitNone (events.js:110:20)
+
+npm manifest: 
+  {
+    "name": "basic",
+    "version": "0.0.0",
+    "description": "",
+    "author": "support@expo.io",
+    "private": true,
+    "main": "node_modules/expo/AppEntry.js",
+    "dependencies": {
+      "expo": "^29.0.0",
+      "@expo/contact-utils": "^0.0.0",
+      "react": "16.3.1",
+      "react-native": "expo/react-native#sdk-29",
+  
+      "async-retry": "^1.1.4",
+      "immutable": "^3.8.1",
+      "jasmine-core": "^2.4.1",
+      "lodash": "^4.17.4"
+    },
+    "devDependencies": {
+      "eslint": "^4.9.0",
+      "eslint-config-universe": "^1.0.6",
+      "prettier": "^1.7.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
