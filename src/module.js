@@ -1,8 +1,17 @@
 // @flow
-import { DangerZone, Contacts } from 'expo';
-const { Localization } = DangerZone;
+import { Contacts, DangerZone } from 'expo';
 
 import STRINGS from './STRINGS';
+
+const { Localization } = DangerZone;
+
+// TODO: Export types from expo-sdk
+type ContactFormOptions = {
+  contact: Object,
+  options: Object,
+};
+
+let _locale;
 
 export function parseDate({ year, month, day, format }): Date {
   let nYear = year || new Date().getFullYear();
@@ -12,11 +21,11 @@ export function parseDate({ year, month, day, format }): Date {
 }
 
 export function formatAddress({ city, country, postalCode, region, street }): string {
-  const address = [street, city, region, postalCode, country].filter(item => item != '').join(', ');
+  const address = [street, city, region, postalCode, country]
+    .filter(item => item !== '')
+    .join(', ');
   return address;
 }
-
-let _locale;
 
 export async function nameForFieldAsync(key: string, strings = STRINGS): ?string {
   if (!strings) {
@@ -48,13 +57,23 @@ export function getPrimaryEntry(items: Array): ?Object {
     const primary = items.filter(({ isPrimary }) => isPrimary);
     if (primary.length > 0) {
       return primary[0];
+    } else {
+      const home = items.filter(({ label }) => {
+        if (typeof label === 'string') {
+          return label.toLowerCase() === 'home';
+        }
+        return false;
+      });
+      if (home.length > 0) {
+        return home[0];
+      }
     }
     return items[0];
   }
   return null;
 }
 
-export async function getGroupWithNameAsync(groupName: string): Promise<?Array> {
+export async function getGroupWithNameAsync(groupName: string): Promise<?Group> {
   const groups = await Contacts.getGroupsAsync({ groupName });
   if (groups && groups.length > 0) {
     return groups[0];
@@ -94,15 +113,6 @@ export async function removeAllChildrenFromGroupWithNameAsync(groupName: string)
     );
   }
 }
-
-/*
-    TODO: Export types from expo-sdk
-*/
-
-type ContactFormOptions = {
-  contact: Object,
-  options: Object,
-};
 
 export function presentNewContactFormAsync({ contact, options }: ContactFormOptions = {}): Promise<
   any

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "basic",
+    "name": "@expo/contact-utils",
     "description": "",
     "slug": "expo-contact-utils",
     "sdkVersion": "29.0.0",

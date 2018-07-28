@@ -1,8 +1,10 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import flow from 'rollup-plugin-flow';
+
 import pkg from './package.json';
 
-const plugins = [resolve(), commonjs()];
+const plugins = [resolve(), flow({ pretty: true }), commonjs()];
 
 const external = Object.keys(Object.assign({}, pkg.peerDependencies, pkg.dependencies));
 
@@ -13,7 +15,7 @@ export default [
    * Node.js Build
    */
   {
-    input: 'index.node.js',
+    input: 'src/index.js',
     output,
     plugins,
     external,
